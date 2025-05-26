@@ -1,0 +1,30 @@
+
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>gvsa</ToolCommandName>
+    <PackageOutputPath>./nupkg</PackageOutputPath>
+    <Version>2.0.8</Version>
+    <Title>GenerateVerticalSliceArchitectureGeneric</Title>
+    <Authors>danielfmpc</Authors>
+    <Description>Geração das Features do seu projeto</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <License>https://raw.githubusercontent.com/danielfmpc/generateVerticalSliceArchitecture/refs/heads/main/LICENSE</License>
+    <RepositoryUrl>https://github.com/danielfmpc/generateVerticalSliceArchitecture</RepositoryUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include=".github\workflows\main.yml" />
+    <None Remove=".github\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MinDiator" Version="1.0.3.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove=".github\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove=".github\**" />
+  </ItemGroup>
+</Project>
