@@ -15,20 +15,20 @@ namespace GenerateVerticalSliceArchitecture
         {
             if (args.Length == 0)
             {
-                Console.WriteLine("Uso: gvsa <nome-da-feature>");
+                Console.WriteLine("Uso: gvsag <NomeDaFeature>");
                 return;
             }
 
             string name = args[0];
             
             var currentDir = Directory.GetCurrentDirectory();
-            string projectDir = Path.GetFullPath(Path.Combine(currentDir, @"..\..\..")); 
-            string pathMain = Path.Combine(projectDir, "Features", name);
+
+            string pathMain = Path.Combine(currentDir, "Features", name);
             
             Directory.CreateDirectory(pathMain);
 
             // Tenta pegar o namespace base do projeto atual
-            string namespaceBase = GetRootNamespace(projectDir) ?? "WebApi.Features";
+            string namespaceBase = GetRootNamespace(currentDir);
 
             // string fullNamespace = $"{namespaceBase}.{name}";
             await Task.WhenAll(
