@@ -10,5 +10,10 @@
     <Title>GenerateVerticalSliceArchitectureGeneric</Title>
     <Authors>danielfmpc</Authors>
     <Description>Geração das Features do seu projeto</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\"/>
+    <None Include=".github\workflows\main.yml" />
+  </ItemGroup>
 </Project>
