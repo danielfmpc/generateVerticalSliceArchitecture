@@ -10,7 +10,7 @@
     <Title>GenerateVerticalSliceArchitectureGeneric</Title>
     <Authors>danielfmpc</Authors>
     <Description>Geração das Features do seu projeto</Description>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReadmeFile>../README.md</PackageReadmeFile>
     <License>https://raw.githubusercontent.com/danielfmpc/generateVerticalSliceArchitecture/refs/heads/main/LICENSE</License>
     <RepositoryUrl>https://github.com/danielfmpc/generateVerticalSliceArchitecture</RepositoryUrl>
   </PropertyGroup>
