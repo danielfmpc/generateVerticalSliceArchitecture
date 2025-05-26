@@ -1,3 +1,5 @@
+[![.NET Publish to NuGet](https://github.com/danielfmpc/generateVerticalSliceArchitecture/actions/workflows/main.yml/badge.svg)](https://github.com/danielfmpc/generateVerticalSliceArchitecture/actions/workflows/main.yml)
+
 # 🧠 Ferramenta CLI Generate Vertical Slice Architecture Generic
 
 **Generate Vertical Slice Architecture Genérico** é uma biblioteca **leve**, **moderna** e **sem dependências externas** que cria estrutura a Feature da arquitetura **Vertical Slice**.
