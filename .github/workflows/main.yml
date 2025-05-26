@@ -2,7 +2,7 @@ name: .NET Publish to NuGet
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "feature/fluentvalidation" ]
   release:
     types: [ published, edited, released, deleted, unpublished ]
 
