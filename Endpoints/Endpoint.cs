@@ -19,9 +19,9 @@ public static class Endpoint
         string conteudo =
 $@"using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using {namespaceBase}.{name}.Features.Queries;
-using {namespaceBase}.{name}.Features.Commands;
-namespace {namespaceBase}.{pathCommand}.{name};
+using {namespaceBase}.Features.{name}.Queries;
+using {namespaceBase}.Features.{name}.Commands;
+namespace {namespaceBase}.Features.{name}.{pathCommand};
 
 // Adicione sua implementação nos metodos http
 // Impletação feita de forma generica

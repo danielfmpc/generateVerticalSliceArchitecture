@@ -34,7 +34,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
  
-namespace {namespaceBase}.{queries}.{name};
+namespace {namespaceBase}.Features.{name}.{queries};
 
 // Adcione sua propriedade e seu retorno        
 public record struct Get{name}{type}Query(string props) : IRequest<Guid>;

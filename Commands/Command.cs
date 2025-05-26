@@ -37,7 +37,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 
-namespace {namespaceBase}.{pathCommand}.{name};
+namespace {namespaceBase}.Features.{name}.{pathCommand};
 
 // Adcione sua propriedade e seu retorno        
 public record struct {type}{name}Command(string props) : IRequest<Guid>;
