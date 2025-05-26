@@ -1,12 +1,12 @@
 [![.NET Publish to NuGet](https://github.com/danielfmpc/generateVerticalSliceArchitecture/actions/workflows/main.yml/badge.svg)](https://github.com/danielfmpc/generateVerticalSliceArchitecture/actions/workflows/main.yml)
 
-# 🧠 Ferramenta CLI Generate Vertical Slice Architecture Generic
+# 🧠 Ferramenta CLI Generate Vertical Slice Architecture
 
-**Generate Vertical Slice Architecture Genérico** é uma biblioteca **leve**, **moderna** e **sem dependências externas** que cria estrutura a Feature da arquitetura **Vertical Slice**.
+**Generate Vertical Slice Architecture** é uma biblioteca **leve**, **moderna** e **sem dependências externas** que cria estrutura a Feature da arquitetura **Vertical Slice**.
 
 ---
 
-## 🚀 Por que Generate Vertical Slice Architecture Generic?
+## 🚀 Por que Generate Vertical Slice Architecture?
 
 - ✅ **Zero dependências externas**
 - 🧱 **Pensado para CQRS** – separa Endpoints, Commands e Queries
@@ -41,7 +41,7 @@ cd c:\..\..\WebApi
 ### Como usar:
 
 ```bash
-gvsag MeuVerticalSliceArchitecture
+gvsa MeuVerticalSliceArchitecture
 ```
 
 
