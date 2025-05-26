@@ -106,6 +106,3 @@ Pull requests são super bem-vindos. Se quiser contribuir com uma ideia, melhori
 ## 📄 Licença
 
 MIT © [danielfmpc](https://github.com/danielfmpc)
-# dotnet-gvsag
-
-Este pacote contém duas formas de gerar arquivos de feature automaticamente usando .NET:

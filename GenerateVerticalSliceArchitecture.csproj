@@ -6,11 +6,13 @@
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>gvsag</ToolCommandName>
     <PackageOutputPath>./nupkg</PackageOutputPath>
-    <Version>2.0.2</Version>
+    <Version>2.0.3</Version>
     <Title>GenerateVerticalSliceArchitectureGeneric</Title>
     <Authors>danielfmpc</Authors>
     <Description>Geração das Features do seu projeto</Description>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/danielfmpc/generateVerticalSliceArchitecture/refs/heads/main/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/danielfmpc/generateVerticalSliceArchitecture</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>
     <None Include="README.md" Pack="true" PackagePath="\"/>
