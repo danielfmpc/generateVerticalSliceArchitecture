@@ -1,14 +1,10 @@
-using System;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-using GenerateVerticalSliceArchitecture.Commands;
+﻿using System.Xml.Linq;
+using Shared.Commands;
 using Shared.Endpoints;
 using Shared.Entities;
 using Shared.Queries;
 
-namespace GenerateVerticalSliceArchitecture
+namespace GenerateVerticalSliceArchitecture.FluentResult
 {
     class Program
     {
@@ -16,7 +12,7 @@ namespace GenerateVerticalSliceArchitecture
         {
             if (args.Length == 0)
             {
-                Console.WriteLine("Uso: gvsa <NomeDaFeature>");
+                Console.WriteLine("Uso: gvsa-fluent-results <NomeDaFeature>");
                 return;
             }
 
@@ -33,9 +29,9 @@ namespace GenerateVerticalSliceArchitecture
 
             // string fullNamespace = $"{namespaceBase}.{name}";
             await Task.WhenAll(
-                Task.Run(() => Command.GenerateCommand(namespaceBase, name, pathMain)),
-                Task.Run(() => Endpoint.GenerateEndpoint(new EndpointEntity(namespaceBase, name, pathMain))),
-                Task.Run(() => Query.GenerateQueries(new QueryEntity(namespaceBase, name, pathMain)))
+                Task.Run(() => Command.GenerateCommand(new CommandEntity(namespaceBase, name, pathMain, true))),
+                Task.Run(() => Endpoint.GenerateEndpoint(new EndpointEntity(namespaceBase, name, pathMain, true))),
+                Task.Run(() => Query.GenerateQueries(new QueryEntity(namespaceBase, name, pathMain, true)))
             );
 
         }

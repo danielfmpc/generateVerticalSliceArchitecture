@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <PackAsTool>true</PackAsTool>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <ToolCommandName>gvsa-fluent-results</ToolCommandName>
+        <PackageOutputPath>./nupkg</PackageOutputPath>
+        <Version>1.0.0</Version>
+        <Title>GenerateVerticalSliceArchitecture.FluentResults</Title>
+        <Authors>danielfmpc</Authors>
+        <Description>Geração das Features do seu projeto</Description>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <License>https://raw.githubusercontent.com/danielfmpc/generateVerticalSliceArchitecture/refs/heads/main/LICENSE</License>
+        <RepositoryUrl>https://github.com/danielfmpc/generateVerticalSliceArchitecture</RepositoryUrl>
+        <Nullable>enable</Nullable>
+        <RootNamespace>GenerateVerticalSliceArchitecture.FluentResult</RootNamespace>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Include="..\README.md" Pack="true" PackagePath="" />
+        <None Include=".github\workflows\main.yml" />
+        <None Remove=".github\**" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="FluentResults" Version="3.16.0" />
+        <PackageReference Include="MinDiator" Version="1.0.3.1" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Remove=".github\**" />
+    </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Remove=".github\**" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Shared\Shared.csproj" />
+    </ItemGroup>
+</Project>

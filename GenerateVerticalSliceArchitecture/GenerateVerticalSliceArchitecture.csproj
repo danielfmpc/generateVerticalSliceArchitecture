@@ -7,7 +7,7 @@
     <ToolCommandName>gvsa</ToolCommandName>
     <PackageOutputPath>./nupkg</PackageOutputPath>
     <Version>2.0.8</Version>
-    <Title>GenerateVerticalSliceArchitectureGeneric</Title>
+    <Title>GenerateVerticalSliceArchitecture</Title>
     <Authors>danielfmpc</Authors>
     <Description>Geração das Features do seu projeto</Description>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -27,5 +27,8 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove=".github\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>
 </Project>
