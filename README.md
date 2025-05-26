@@ -7,7 +7,8 @@
 ---
 
 ## 🚀 Por que Generate Vertical Slice Architecture?
-- ✅ Utilizamos a biblioteca **MinDiator** como dependência
+
+- ✅ Utilizamos a biblioteca [**MinDiator**](https://github.com/fguimaraess/MinDiator) como dependência
 - 🧱 **Pensado para CQRS** – separa Endpoints, Commands e Queries
 - 🧩 **Ideal para Vertical Slice Architecture** – organização de features por funcionalidade
 - 🧰 **Fácil de executar**
