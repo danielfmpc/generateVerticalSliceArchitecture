@@ -17,7 +17,7 @@ public static class Endpoint
     {
         string pathCommand = "Endpoints";
         string conteudo =
-$@"using MediatR;
+$@"using MinDiator;
 using Microsoft.AspNetCore.Mvc;
 using {namespaceBase}.Features.{name}.Queries;
 using {namespaceBase}.Features.{name}.Commands;

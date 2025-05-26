@@ -35,7 +35,7 @@ public static class Command
 $@"using System;
 using System.Threading;
 using System.Threading.Tasks;
-using MediatR;
+using MinDiator;
 
 namespace {namespaceBase}.Features.{name}.{pathCommand};
 

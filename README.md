@@ -2,13 +2,12 @@
 
 # 🧠 Ferramenta CLI Generate Vertical Slice Architecture
 
-**Generate Vertical Slice Architecture** é uma biblioteca **leve**, **moderna** e **sem dependências externas** que cria estrutura a Feature da arquitetura **Vertical Slice**.
+**Generate Vertical Slice Architecture** é uma biblioteca **leve** e **moderna** que cria estrutura a Feature da arquitetura **Vertical Slice**.
 
 ---
 
 ## 🚀 Por que Generate Vertical Slice Architecture?
-
-- ✅ **Zero dependências externas**
+- ✅ Utilizamos a biblioteca **MinDiator** como dependência
 - 🧱 **Pensado para CQRS** – separa Endpoints, Commands e Queries
 - 🧩 **Ideal para Vertical Slice Architecture** – organização de features por funcionalidade
 - 🧰 **Fácil de executar**

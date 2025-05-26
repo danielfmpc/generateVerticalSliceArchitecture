@@ -32,7 +32,7 @@ public static class Query
 $@"using System;
 using System.Threading;
 using System.Threading.Tasks;
-using MediatR;
+using MinDiator;
  
 namespace {namespaceBase}.Features.{name}.{queries};
 
