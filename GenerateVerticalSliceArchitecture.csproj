@@ -4,6 +4,11 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net9.0</TargetFramework>
     <PackAsTool>true</PackAsTool>
-    <ToolCommandName>gvsa</ToolCommandName>
+    <ToolCommandName>gvsag</ToolCommandName>
+    <PackageOutputPath>./nupkg</PackageOutputPath>
+    <Version>2.0.0</Version>
+    <Title>GenerateVerticalSliceArchitectureGeneric</Title>
+    <Authors>danielfmpc</Authors>
+    <Description>Geração das Features do seu projeto</Description>
   </PropertyGroup>
 </Project>
