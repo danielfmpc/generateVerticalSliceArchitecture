@@ -2,7 +2,7 @@ name: .NET Publish to NuGet
 
 on:
   push:
-    branches: [ "main", "feature/fluentvalidation" ]
+    branches: [ "main" ]
   release:
     types: [ published, edited, released, deleted, unpublished ]
 
@@ -35,6 +35,6 @@ jobs:
 
       - name: Pack GenerateVerticalSliceArchitecture.FluentResult
         run: dotnet pack ./GenerateVerticalSliceArchitecture.FluentResult --configuration Release --output ./nupkg
-#
-#      - name: Publish all packages to NuGet
-#        run: dotnet nuget push ./nupkg/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+
+      - name: Publish all packages to NuGet
+        run: dotnet nuget push ./nupkg/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
