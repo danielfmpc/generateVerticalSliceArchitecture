@@ -15,7 +15,6 @@
         <License>https://raw.githubusercontent.com/danielfmpc/generateVerticalSliceArchitecture/refs/heads/main/LICENSE</License>
         <RepositoryUrl>https://github.com/danielfmpc/generateVerticalSliceArchitecture</RepositoryUrl>
         <Nullable>enable</Nullable>
-        <RootNamespace>GenerateVerticalSliceArchitecture.FluentResult</RootNamespace>
     </PropertyGroup>
     <ItemGroup>
         <None Include="..\README.md" Pack="true" PackagePath="" />
