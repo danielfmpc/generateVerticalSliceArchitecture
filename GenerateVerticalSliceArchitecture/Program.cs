@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using GenerateVerticalSliceArchitecture.Commands;
+using Shared.Commands;
 using Shared.Endpoints;
 using Shared.Entities;
 using Shared.Queries;
@@ -20,7 +20,7 @@ namespace GenerateVerticalSliceArchitecture
                 return;
             }
 
-            string name = args[0];
+            string name = Capitalizar(args[0]);
             
             var currentDir = Directory.GetCurrentDirectory();
 
@@ -33,7 +33,7 @@ namespace GenerateVerticalSliceArchitecture
 
             // string fullNamespace = $"{namespaceBase}.{name}";
             await Task.WhenAll(
-                Task.Run(() => Command.GenerateCommand(namespaceBase, name, pathMain)),
+                Task.Run(() => Command.GenerateCommand(new CommandEntity(namespaceBase, name, pathMain))),
                 Task.Run(() => Endpoint.GenerateEndpoint(new EndpointEntity(namespaceBase, name, pathMain))),
                 Task.Run(() => Query.GenerateQueries(new QueryEntity(namespaceBase, name, pathMain)))
             );

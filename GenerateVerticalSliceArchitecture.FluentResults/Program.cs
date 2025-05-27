@@ -16,7 +16,7 @@ namespace GenerateVerticalSliceArchitecture.FluentResult
                 return;
             }
 
-            string name = args[0];
+            string name = Capitalizar(args[0]);
             
             var currentDir = Directory.GetCurrentDirectory();
 
@@ -33,7 +33,6 @@ namespace GenerateVerticalSliceArchitecture.FluentResult
                 Task.Run(() => Endpoint.GenerateEndpoint(new EndpointEntity(namespaceBase, name, pathMain, true))),
                 Task.Run(() => Query.GenerateQueries(new QueryEntity(namespaceBase, name, pathMain, true)))
             );
-
         }
 
         static string GetRootNamespace(string projectDir)
