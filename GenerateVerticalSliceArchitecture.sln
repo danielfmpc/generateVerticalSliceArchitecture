@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenerateVerticalSliceArchitecture.FluentResults", "GenerateVerticalSliceArchitecture.FluentResults\GenerateVerticalSliceArchitecture.FluentResults.csproj", "{1804544C-4066-424E-A6DA-48EF96D94236}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenerateVerticalSliceArchitecture", "GenerateVerticalSliceArchitecture\GenerateVerticalSliceArchitecture.csproj", "{50CEB617-7FE1-4C2E-AAF2-0EC3260574E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1ECF6639-CA8B-44B2-9D8A-6AB668D0C1DE}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+		.github\workflows\main.yml = .github\workflows\main.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{EFE87CAF-41CD-4139-9BD2-B6F529EA9D34}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1804544C-4066-424E-A6DA-48EF96D94236}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1804544C-4066-424E-A6DA-48EF96D94236}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1804544C-4066-424E-A6DA-48EF96D94236}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1804544C-4066-424E-A6DA-48EF96D94236}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50CEB617-7FE1-4C2E-AAF2-0EC3260574E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50CEB617-7FE1-4C2E-AAF2-0EC3260574E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50CEB617-7FE1-4C2E-AAF2-0EC3260574E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50CEB617-7FE1-4C2E-AAF2-0EC3260574E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFE87CAF-41CD-4139-9BD2-B6F529EA9D34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFE87CAF-41CD-4139-9BD2-B6F529EA9D34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFE87CAF-41CD-4139-9BD2-B6F529EA9D34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFE87CAF-41CD-4139-9BD2-B6F529EA9D34}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{50CEB617-7FE1-4C2E-AAF2-0EC3260574E1} = {1ECF6639-CA8B-44B2-9D8A-6AB668D0C1DE}
+		{1804544C-4066-424E-A6DA-48EF96D94236} = {1ECF6639-CA8B-44B2-9D8A-6AB668D0C1DE}
+		{EFE87CAF-41CD-4139-9BD2-B6F529EA9D34} = {1ECF6639-CA8B-44B2-9D8A-6AB668D0C1DE}
+	EndGlobalSection
+EndGlobal

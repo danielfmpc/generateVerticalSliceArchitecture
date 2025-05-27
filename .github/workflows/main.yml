@@ -12,22 +12,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '9.0.x'
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
 
-    - name: Restore dependencies
-      run: dotnet restore
+      - name: Restore dependencies for all projects
+        run: |
+          dotnet restore ./GenerateVerticalSliceArchitecture
+          dotnet restore ./GenerateVerticalSliceArchitecture.FluentResult
 
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
+      - name: Build all projects
+        run: |
+          dotnet build ./GenerateVerticalSliceArchitecture --configuration Release --no-restore
+          dotnet build ./GenerateVerticalSliceArchitecture.FluentResult --configuration Release --no-restore
 
-    - name: Pack
-      run: dotnet pack --configuration Release --output ./nupkg
+      - name: Pack GenerateVerticalSliceArchitecture
+        run: dotnet pack ./GenerateVerticalSliceArchitecture --configuration Release --output ./nupkg
 
-    - name: Publish to NuGet
-      run: dotnet nuget push ./nupkg/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json 
+      - name: Pack GenerateVerticalSliceArchitecture.FluentResult
+        run: dotnet pack ./GenerateVerticalSliceArchitecture.FluentResult --configuration Release --output ./nupkg
+
+      - name: Publish all packages to NuGet
+        run: dotnet nuget push ./nupkg/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
