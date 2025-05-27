@@ -4,24 +4,18 @@ namespace Shared.Queries;
 
 public static class Query
 {
-    public static void GenerateQueries(QueryEntity queryEntity)
+    public static async Task GenerateQueries(QueryEntity queryEntity)
     {
-        Parallel.Invoke(
-            () =>
-            {
-                Console.WriteLine("Begin Query List task...");
-                queryEntity.SetType("List");
-                GenereteCommand(queryEntity);
-            },
-            () =>{
-                Console.WriteLine("Begin Query ById task...");
-                queryEntity.SetType("ById");
-                GenereteCommand(queryEntity);
-            }
-        );
+        Console.WriteLine("Begin Query List task...");
+        queryEntity.SetType("List");
+        await GenereteCommand(queryEntity);
+                    
+        Console.WriteLine("Begin Query ById task...");
+        queryEntity.SetType("ById");
+        await  GenereteCommand(queryEntity);
     }
 
-    private static void GenereteCommand(QueryEntity queryEntity)
+    private static async Task GenereteCommand(QueryEntity queryEntity)
     {
         string pathQueries = Path.Combine(queryEntity.PathMain, "Queries");
             
@@ -32,30 +26,31 @@ public static class Query
 $@"using System;
 using System.Threading;
 using System.Threading.Tasks;
-using MinDiator;
+using MinDiator.Interfaces;
 @fluentresultUsing
  
 namespace {queryEntity.NamespaceBase}.Features.{queryEntity.Name}.{queries};
 
 // Adcione sua propriedade e seu retorno        
-public record struct Get{queryEntity.Name}{queryEntity.Type}Query(string props) : IRequest<Guid>;
+public record struct Get{queryEntity.Name}{queryEntity.Type}Query(Guid id) : IRequest<@fluentresultsReturn>;
 
 // Injete seu reposistório
-public class  Get{queryEntity.Name}{queryEntity.Type}QueryHandler(object repository) : IRequestHandler<Get{queryEntity.Name}{queryEntity.Type}Query, Guid>
+public class  Get{queryEntity.Name}{queryEntity.Type}QueryHandler(object repository) : IRequestHandler<Get{queryEntity.Name}{queryEntity.Type}Query, @fluentresultsReturn>
 {{
     // Implemente sua lógica
-    public async Task<Guid> Handle(Get{queryEntity.Name}{queryEntity.Type}Query request, CancellationToken cancellationToken)
+    public async Task<@fluentresultsReturn> Handle(Get{queryEntity.Name}{queryEntity.Type}Query request, CancellationToken cancellationToken)
     {{
         @fluentresultHandle
     }}
 }}
 ".Trim();
-        conteudo = conteudo.Replace("@fluentresultUsing", queryEntity.FluentResult ? "using FluentResult;" : "");
+        conteudo = conteudo.Replace("@fluentresultUsing", queryEntity.FluentResult ? "using FluentResults;" : "");
         conteudo = conteudo.Replace("@fluentresultHandle", queryEntity.FluentResult ? "return Result.Ok();" : "throw new NotImplementedException();");
+        conteudo = conteudo.Replace("@fluentresultsReturn", queryEntity.FluentResult ? "Result<Guid>" : "Guid");
 
 
         string filePath = Path.Combine(queryEntity.PathMain, queries, $"Get{queryEntity.Name}{queryEntity.Type}QueryHandler.cs");
-        File.WriteAllText(filePath, conteudo);
+        await File.WriteAllTextAsync(filePath, conteudo);
         
         Console.WriteLine($"Feature '{queryEntity.Name}' criada em {filePath}");
     }

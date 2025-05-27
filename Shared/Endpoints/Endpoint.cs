@@ -4,7 +4,7 @@ namespace Shared.Endpoints;
 
 public static class Endpoint
 {
-    public static void GenerateEndpoint(EndpointEntity endpointEntity)
+    public static async Task GenerateEndpoint(EndpointEntity endpointEntity)
     {
         string pathEndpoints = Path.Combine(endpointEntity.PathMain, "Endpoints");
             
@@ -12,11 +12,12 @@ public static class Endpoint
         Console.WriteLine("Begin first task...");
         GenereteCommand(endpointEntity);
     }
-    private static void GenereteCommand(EndpointEntity endpointEntity)
+    private static async Task GenereteCommand(EndpointEntity endpointEntity)
     {
         string pathCommand = "Endpoints";
         string conteudo =
 $@"using MinDiator;
+using MinDiator.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using {endpointEntity.NamespaceBase}.Features.{endpointEntity.Name}.Queries;
 using {endpointEntity.NamespaceBase}.Features.{endpointEntity.Name}.Commands;

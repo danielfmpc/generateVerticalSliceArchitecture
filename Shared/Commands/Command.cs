@@ -4,63 +4,58 @@ namespace Shared.Commands;
 
 public static class Command
 {
-    public static void GenerateCommand(CommandEntity commandEntity)
+    public static async Task GenerateCommand(CommandEntity commandEntity)
     {
         string pathCommand = Path.Combine(commandEntity.PathMain, "Commands");
             
         Directory.CreateDirectory(pathCommand);
-        Parallel.Invoke(
-            () =>
-            {
-                Console.WriteLine("Begin Create task...");
-                commandEntity.SetType("Create");
-                GenereteCommand(commandEntity);
-            },
-            () =>{
-                Console.WriteLine("Begin Update task...");
-                commandEntity.SetType("Update");
-                GenereteCommand(commandEntity);
-            },
-            () =>{
-                Console.WriteLine("Begin Delete task...");
-                commandEntity.SetType("Delete");
-                GenereteCommand(commandEntity);
-            }
-        );
+        
+        commandEntity.SetType("Create");
+        Console.WriteLine($"Begin {commandEntity.Type} task...");
+        await GenerateFileCommand(commandEntity);
+        
+        commandEntity.SetType("Update");
+        Console.WriteLine($"Begin {commandEntity.Type} task...");
+        await GenerateFileCommand(commandEntity);
+        
+        commandEntity.SetType("Delete");
+        Console.WriteLine($"Begin {commandEntity.Type} task...");
+        await GenerateFileCommand(commandEntity);
     }
 
-    private static void GenereteCommand(CommandEntity commandEntity)
+    private static async Task GenerateFileCommand(CommandEntity commandEntity)
     {
         string pathCommand = "Commands";
         string conteudo = 
-$@"using System;
+            $@"using System;
 using System.Threading;
 using System.Threading.Tasks;
-using MinDiator;
-@fluentresultUsing
+using MinDiator.Interfaces;
+@fluentresultsUsing
 
 namespace {commandEntity.NamespaceBase}.Features.{commandEntity.Name}.{pathCommand};
 
 // Adcione sua propriedade e seu retorno        
-public record struct {commandEntity.Type}{commandEntity.Name}Command(string props) : IRequest<Guid>;
+public record struct {commandEntity.Type}{commandEntity.Name}Command(string props) : IRequest<@fluentresultsReturn>;
 
 // Injete seu reposistório
-public class  {commandEntity.Type}{commandEntity.Name}CommandHandler(object repository) : IRequestHandler<{commandEntity.Type}{commandEntity.Name}Command, Guid>
+public class  {commandEntity.Type}{commandEntity.Name}CommandHandler(object repository) : IRequestHandler<{commandEntity.Type}{commandEntity.Name}Command, @fluentresultsReturn>
 {{
     // Implemente sua lógica
-    public async Task<Guid> Handle({commandEntity.Type}{commandEntity.Name}Command request, CancellationToken cancellationToken)
+    public async Task<@fluentresultsReturn> Handle({commandEntity.Type}{commandEntity.Name}Command request, CancellationToken cancellationToken)
     {{
-        @fluentresultHandle
+        @fluentresultsHandle
     }}
 }}
 ".Trim();
         
-        conteudo = conteudo.Replace("@fluentresultUsing", commandEntity.FluentResult ? "using FluentResult;" : "");
-        conteudo = conteudo.Replace("@fluentresultHandle", commandEntity.FluentResult ? "return Result.Ok();" : "throw new NotImplementedException();");
+        conteudo = conteudo.Replace("@fluentresultsUsing", commandEntity.FluentResult ? "using FluentResults;" : "");
+        conteudo = conteudo.Replace("@fluentresultsHandle", commandEntity.FluentResult ? "return Result.Ok(Guid.NewGuid());" : "throw new NotImplementedException();");
+        conteudo = conteudo.Replace("@fluentresultsReturn", commandEntity.FluentResult ? "Result<Guid>" : "Guid");
 
         
         string filePath = Path.Combine(commandEntity.PathMain, pathCommand, $"{commandEntity.Type}{commandEntity.Name}CommandHandler.cs");
-        File.WriteAllText(filePath, conteudo);
+        await File.WriteAllTextAsync(filePath, conteudo);
         
         Console.WriteLine($"Feature '{commandEntity.Name}' criada em {filePath}");
     }
