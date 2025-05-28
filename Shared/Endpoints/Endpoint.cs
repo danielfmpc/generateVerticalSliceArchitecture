@@ -71,8 +71,8 @@ public static class {endpointEntity.Name}Endpoint
 }}
 ".Trim();
         conteudo = conteudo.Replace("@fluentresultIf", endpointEntity.FluentResult ? "result.IsFailed" : "result is null");
-        conteudo = conteudo.Replace("@fluentresultValue", endpointEntity.FluentResult ? "result.Errors" : "");
-        conteudo = conteudo.Replace("@fluentresultError", endpointEntity.FluentResult ? "result.Value" : "");
+        conteudo = conteudo.Replace("@fluentresultValue", endpointEntity.FluentResult ? "result.Value" : "");
+        conteudo = conteudo.Replace("@fluentresultError", endpointEntity.FluentResult ? "result.Errors" : "");
 
 
         string filePath = Path.Combine(endpointEntity.PathMain, pathCommand, $"{endpointEntity.Name}Endpoint.cs");
