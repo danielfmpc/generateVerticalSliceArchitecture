@@ -36,7 +36,7 @@ public static class {endpointEntity.Name}Endpoint
             
             var result = await mediator.Send(query);
 
-            if(result is null) return Results.NotFound(@fluentresultError);
+            if(@fluentresultIf) return Results.NotFound(@fluentresultError);
 
             return Results.Ok(@fluentresultValue);
         }});
@@ -46,7 +46,7 @@ public static class {endpointEntity.Name}Endpoint
             var query = new Get{endpointEntity.Name}ByIdQuery(id);
             var result = await mediator.Send(query);
 
-            if(result is null) return Results.NotFound(@fluentresultError);
+            if(@fluentresultIf) return Results.NotFound(@fluentresultError);
 
             return Results.Ok(@fluentresultValue);
         }});
@@ -55,7 +55,7 @@ public static class {endpointEntity.Name}Endpoint
         {{
             var result = await mediator.Send(command);
 
-            if(result is null) return Results.NotFound(@fluentresultError);
+            if(@fluentresultIf) return Results.NotFound(@fluentresultError);
 
             return Results.Ok(@fluentresultValue);        }});
 
