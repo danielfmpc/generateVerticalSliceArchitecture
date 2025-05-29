@@ -28,7 +28,7 @@ namespace {endpointEntity.NamespaceBase}.Features.{endpointEntity.Name}.{pathCom
 
 public static class {endpointEntity.Name}Endpoint
 {{
-    public static void MapToDo(this IEndpointRouteBuilder endpoints)
+    public static void Map{endpointEntity.Name}(this IEndpointRouteBuilder endpoints)
     {{
         endpoints.MapGet(""/{endpointEntity.Name.ToLower()}"", async ([FromServices]IMediator mediator) =>
         {{

@@ -7,7 +7,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <ToolCommandName>gvsa-fluent-results</ToolCommandName>
         <PackageOutputPath>./nupkg</PackageOutputPath>
-        <Version>1.0.2</Version>
+        <Version>1.0.3</Version>
         <Title>GenerateVerticalSliceArchitecture.FluentResults</Title>
         <Authors>danielfmpc</Authors>
         <Description>Geração das Features do seu projeto</Description>
