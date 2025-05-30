@@ -32,7 +32,7 @@ using MinDiator.Interfaces;
 namespace {queryEntity.NamespaceBase}.Features.{queryEntity.Name}.{queries};
 
 // Adcione sua propriedade e seu retorno        
-public record struct Get{queryEntity.Name}{queryEntity.Type}Query(Guid id) : IRequest<@fluentresultsReturn>;
+public record struct Get{queryEntity.Name}{queryEntity.Type}Query(@listOrById) : IRequest<@fluentresultsReturn>;
 
 // Injete seu reposistório
 public class  Get{queryEntity.Name}{queryEntity.Type}QueryHandler(object repository) : IRequestHandler<Get{queryEntity.Name}{queryEntity.Type}Query, @fluentresultsReturn>
@@ -46,7 +46,8 @@ public class  Get{queryEntity.Name}{queryEntity.Type}QueryHandler(object reposit
 ".Trim();
         conteudo = conteudo.Replace("@fluentresultUsing", queryEntity.FluentResult ? "using FluentResults;" : "");
         conteudo = conteudo.Replace("@fluentresultHandle", queryEntity.FluentResult ? "return Result.Ok();" : "throw new NotImplementedException();");
-        conteudo = conteudo.Replace("@fluentresultsReturn", queryEntity.FluentResult ? "Result<Guid>" : "Guid");
+        conteudo = conteudo.Replace("@fluentresultsReturn", queryEntity.FluentResult ? "Result<List<Guid>>" : "Guid");
+        conteudo = conteudo.Replace("@listOrById", queryEntity.Type.Equals("List", StringComparison.CurrentCultureIgnoreCase) ? "Result<List<Guid>>" : "Guid");
 
 
         string filePath = Path.Combine(queryEntity.PathMain, queries, $"Get{queryEntity.Name}{queryEntity.Type}QueryHandler.cs");

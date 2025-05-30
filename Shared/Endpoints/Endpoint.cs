@@ -17,7 +17,6 @@ public static class Endpoint
         string pathCommand = "Endpoints";
         string conteudo =
 $@"using MinDiator;
-using MinDiator.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using {endpointEntity.NamespaceBase}.Features.{endpointEntity.Name}.Queries;
 using {endpointEntity.NamespaceBase}.Features.{endpointEntity.Name}.Commands;
@@ -63,9 +62,9 @@ public static class {endpointEntity.Name}Endpoint
         {{
             var result = await mediator.Send(command);
 
-            if(@fluentresultIf) return Results.NotFound(result.Errors);
+            if(@fluentresultIf) return Results.NotFound(@fluentresultError);
 
-            return Results.Ok(result.Value);
+            return Results.Ok(@fluentresultValue);
         }});
     }}
 }}

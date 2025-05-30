@@ -6,7 +6,7 @@
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>gvsa</ToolCommandName>
     <PackageOutputPath>./nupkg</PackageOutputPath>
-    <Version>2.1.2</Version>
+    <Version>2.1.3</Version>
     <Title>GenerateVerticalSliceArchitecture</Title>
     <Authors>danielfmpc</Authors>
     <Description>Geração das Features do seu projeto</Description>
